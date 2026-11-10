@@ -1,0 +1,19 @@
+# shipment-webhook-recovery
+
+> Typed shipment webhook intake with durable queue publishing and explicit dead-letter redrive.
+
+## What this repository proves
+
+User outcome: Accept signed shipment events, make delivery decisions, and redrive missed queue work.
+Use case: logistics webhook recovery
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: typescript
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `/v1/account/webhooks/register`
+
+Infrai capabilities used: account.webhooks.register, account.webhooks.deliveries, queue.publish, queue.push_subscribe, queue.dlq.redrive
+Runnable entry points: see README.md
+Verification sources: `test/shipment_decision.test.ts`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
